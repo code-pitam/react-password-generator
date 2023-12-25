@@ -45,9 +45,9 @@ function App() {
 
   return (
     <>
-      <div className="bg-dark-200 p-8 m-8 w-screen h-screen flex justify-center align-center">
-        <div className="text-black bg-pink-200 w-1/2 h-2/3  justify-start m-20 align-top  flex flex-col  p-2 flex-wrap">
-          <h1 className="text-base m-4">Password Generator</h1>
+      <div className="bg-slate-900 p-8  w-screen h-screen flex">
+        <div className="bg-slate-600 w-1/2 rounded-lg shadow-xl h-fit mx-auto justify-start  align-top  flex flex-col  p-2 flex-wrap">
+          <h1 className="text-emerald-400 text-2xl mx-auto my-3  ">Password Generator</h1>
           <input
             ref={copySelect}
             value={password}
@@ -56,10 +56,14 @@ function App() {
             name=""
             id=""
           />
-          <button className="text-white m-5" onClick={copyFunction}>
+          <button className="text-black m-5" onClick={copyFunction}>
             copy
           </button>
+          
+
+          <label htmlFor="range" className="flex justify-center align-middle text-white">
           <input
+          className="mx-2"
             type="range"
             min={1}
             max={100}
@@ -69,24 +73,35 @@ function App() {
             onChange={(e) => {
               setLength(e.target.value);
             }}
-          />
 
-          <label htmlFor="range">character-{length}</label>
+          />
+            length: {length}</label>
+        <div
+         className="flex justify-around my-4 align-middle">
+<label htmlFor="number" className=" text-white flex justify-center align-middle">number:
           <input
+                    className="mx-1 "
+
             type="checkbox"
             onChange={() => setNumberAllowed((prev) => !prev)}
             name="number"
             id="number"
           />
-
-          <label htmlFor="number">number </label>
+           </label>
+         
+          <label className=" flex justify-center align-middle text-white "  htmlFor="specialChar">specialChar:
           <input
+          className="mx-1 "
             type="checkbox"
             onChange={() => setCharAllowed((prev) => !prev)}
             name="specialChar"
             id="specialChar"
           />
-          <label htmlFor="specialChar">specialChar</label>
+          </label>
+
+         </div>
+
+          
         </div>
       </div>
     </>
